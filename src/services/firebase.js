@@ -1,11 +1,17 @@
-// Firebase SDK imports
-import { initializeApp } from 'firebase/app'
-import { getAuth } from 'firebase/auth'
-import { getFirestore } from 'firebase/firestore'
-import { getAnalytics } from "firebase/analytics"
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+//import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth } from "firebase/auth"
+import { getFirestore } from "firebase/firestore";
+import { getStorage} from "firebase/storage"
+//import { getAuth } from "firebase/auth";
+//import { getFirestore } from "firebase/firestore";
+//import { getStorage } from "firebase/storage";
 
-// Firebase project configuration pulled from environment variables
-// Never hard-code these values — use .env file
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyD180AmG4uZ7JIbWTV9v6IHIB0q0gWpvhY",
   authDomain: "care-hub-2cede.firebaseapp.com",
@@ -16,12 +22,10 @@ const firebaseConfig = {
   measurementId: "G-HHQWRSS9T7"
 };
 
-// Initialize the Firebase app (singleton pattern — safe to import anywhere)
-const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+//const analytics = getAnalytics(app);
 
-// Export auth and Firestore instances for use throughout the app
-export const auth = getAuth(app)
-export const db   = getFirestore(app)
-
-export default app
+export const db = getFirestore(app);
+export const auth = getAuth(app);
+export const storage = getStorage(app); 
