@@ -2,9 +2,9 @@ import { useNavigate } from 'react-router-dom'
 import { LayoutDashboard, AlertCircle } from 'lucide-react'
 import Button from '../components/ui/Button.jsx'
 
-/**
- * NotFound — 404 page shown for any unrecognised route.
- */
+
+ //NotFound — 404 page shown for any unrecognised route.
+ 
 const NotFound = () => {
   const navigate = useNavigate()
 
