@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { UserPlus, Users, LayoutGrid, List } from 'lucide-react'
+import { UserPlus, Users, LayoutGrid, List, AlertCircle } from 'lucide-react'
 import toast from 'react-hot-toast'
 import usePatients from '../hooks/usePatients.js'
 import PatientTable from '../components/patients/PatientTable.jsx'
@@ -10,17 +10,13 @@ import Button from '../components/ui/Button.jsx'
 
 
 const Patients = () => {
-  const { patients, loading, removePatient } = usePatients()
+  const { patients, loading, error, removePatient } = usePatients()
   const navigate = useNavigate()
 
-  // View mode: 'table' | 'grid'
   const [viewMode, setViewMode] = useState('table')
-
-  // Delete confirmation state
   const [deleteTarget, setDeleteTarget] = useState(null)
   const [deleting, setDeleting]         = useState(false)
 
-  // -- Delete --
   const handleDeleteRequest = (id, name) => {
     setDeleteTarget({ id, name })
   }
@@ -40,27 +36,40 @@ const Patients = () => {
   }
 
   return (
-    <div className="space-y-5 animate-fade-in-up">
+    <div className="space-y-5 animate-fade-in-up pb-10"> {/* Added pb-10 for mobile clearance */}
 
-      {/* Page header */}
-      <div className="flex items-center justify-between">
+      {/* Error banner */}
+      {error && (
+        <div className="flex items-center gap-3 px-4 py-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700">
+          <AlertCircle size={16} className="flex-shrink-0" />
+          <span>{error}</span>
+        </div>
+      )}
+
+      {/* Page header — Adjusted to stack on mobile */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h2 className="text-xl font-bold text-ink">Patient Records</h2>
           <p className="text-sm text-ink-muted mt-0.5">
             Manage and review all registered patients
           </p>
         </div>
-        <Button variant="primary" icon={UserPlus} onClick={() => navigate('/patients/add')}>
+        <Button 
+          variant="primary" 
+          icon={UserPlus} 
+          onClick={() => navigate('/patients/add')}
+          className="w-full sm:w-auto justify-center" // Full width on mobile
+        >
           Add Patient
         </Button>
       </div>
 
-      {/* Toolbar */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-50 border border-brand-100">
+      {/* Toolbar — Ensuring horizontal alignment on mobile */}
+      <div className="flex items-center justify-between gap-2">
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-50 border border-brand-100 flex-shrink-0">
           <Users size={13} className="text-brand-500" />
-          <span className="text-xs font-semibold text-brand-600">
-            {patients.length} total patient{patients.length !== 1 ? 's' : ''}
+          <span className="text-[10px] sm:text-xs font-semibold text-brand-600 whitespace-nowrap">
+            {patients.length} total {patients.length !== 1 ? 'patients' : 'patient'}
           </span>
         </div>
 
@@ -87,20 +96,22 @@ const Patients = () => {
         </div>
       </div>
 
-      {/* Table view */}
+      {/* Table view — The responsiveness for this is handled inside PatientTable.jsx */}
       {viewMode === 'table' && (
-        <PatientTable
-          patients={patients}
-          loading={loading}
-          onEdit={(patient) => navigate(`/patients/${patient.id}/edit`)}
-          onDelete={(id) => {
-            const p = patients.find((x) => x.id === id)
-            handleDeleteRequest(id, p?.name)
-          }}
-        />
+        <div className="w-full">
+          <PatientTable
+            patients={patients}
+            loading={loading}
+            onEdit={(patient) => navigate(`/patients/${patient.id}/edit`)}
+            onDelete={(id) => {
+              const p = patients.find((x) => x.id === id)
+              handleDeleteRequest(id, p?.name)
+            }}
+          />
+        </div>
       )}
 
-      {/* Grid view */}
+      {/* Grid view — Fixed grid columns for different screen sizes */}
       {viewMode === 'grid' && (
         <>
           {loading ? (
