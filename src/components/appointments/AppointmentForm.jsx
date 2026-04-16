@@ -219,7 +219,7 @@ const AppointmentForm = ({ initialData, patients = [], onSubmit, onCancel, loadi
         <Button type="button" variant="secondary" onClick={onCancel} disabled={loading}>
           Cancel
         </Button>
-        <Button type="submit" variant="primary" loading={loading}>
+        <Button type="submit" variant="secondary" loading={loading}>
           {initialData ? 'Save Changes' : 'Schedule Appointment'}
         </Button>
       </div>
