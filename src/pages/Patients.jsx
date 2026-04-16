@@ -8,15 +8,7 @@ import PatientCard from '../components/patients/PatientCard.jsx'
 import ConfirmDialog from '../components/ui/ConfirmDialog.jsx'
 import Button from '../components/ui/Button.jsx'
 
-/**
- * Patients page — the main patient management screen.
- *
- * Features:
- * - Table view and card grid view toggle
- * - Add patient via modal form
- * - Edit patient inline via modal form
- * - Delete patient with ConfirmDialog (no native browser dialogs)
- */
+
 const Patients = () => {
   const { patients, loading, removePatient } = usePatients()
   const navigate = useNavigate()
