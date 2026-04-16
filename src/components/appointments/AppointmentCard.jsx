@@ -2,13 +2,12 @@ import { Clock, CalendarDays, FileText, Pencil, Trash2 } from 'lucide-react'
 import Badge from '../ui/Badge.jsx'
 import { formatDate } from '../../utils/helpers.js'
 
-/**
- * 
- *
- * @param {Object}   appointment - Appointment data object from Firestore
- * @param {Function} onEdit      - Opens edit modal for this appointment
- * @param {Function} onDelete    - Triggers delete confirmation
- */
+
+/*
+ @param {Object}   appointment - Appointment data object from Firestore
+  @param {Function} onEdit      - Opens edit modal for this appointment
+  @param {Function} onDelete    - Triggers delete */
+ 
 const AppointmentCard = ({ appointment, onEdit, onDelete }) => {
   return (
     <div className="bg-white rounded-xl2 border border-surface-border shadow-card p-4 hover:border-brand-200 transition-all duration-200">
