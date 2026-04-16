@@ -10,7 +10,10 @@ import toast from 'react-hot-toast'
 
 const Login = () => {
   const { login, register } = useAuth()
-  const navigate             = useNavigate()
+  const navigate = useNavigate()
+  // const authorization = auth()
+  // const signIn = signInWithEmailAndPassword()
+
 
   // Mode toggle: false = sign in, true = create account
   const [isRegister, setIsRegister] = useState(false)
