@@ -10,7 +10,7 @@
  */
 const StatCard = ({ title, value, icon: Icon, iconColor, iconBg, subtitle }) => {
   return (
-    <div className="bg-white rounded-xl2 border border-surface-border shadow-card p-5 flex items-start gap-4 animate-fade-in-up">
+    <div className="bg-white rounded-xl border border-surface-border shadow-card p-5 flex items-start gap-4 animate-fade-in-up">
       {/* Icon container */}
       <div className={`rounded-xl p-3 ${iconBg} flex-shrink-0`}>
         <Icon size={22} className={iconColor} />

@@ -7,6 +7,7 @@ import { CalendarDays } from 'lucide-react'
 import { formatDate, truncate } from '../../utils/helpers.js'
 import { APPOINTMENT_STATUSES } from '../../utils/constants.js'
 
+
 const PAGE_SIZE = 8
 
 /**

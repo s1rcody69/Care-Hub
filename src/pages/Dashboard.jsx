@@ -124,7 +124,7 @@ const Dashboard = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-        <div className="bg-white rounded-xl2 border border-surface-border shadow-card p-5">
+        <div className="bg-white rounded-xl border border-surface-border shadow-card p-5">
           <h3 className="text-sm font-bold text-ink mb-4">Appointment Status</h3>
 
           {chartData.length === 0 ? (
@@ -172,7 +172,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-2 bg-white rounded-xl2 border border-surface-border shadow-card overflow-hidden">
+        <div className="lg:col-span-2 bg-white rounded-xl border border-surface-border shadow-card overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 border-b border-surface-border">
             <div className="flex items-center gap-2">
               <Users size={16} className="text-brand-500" />
@@ -225,7 +225,7 @@ const Dashboard = () => {
       </div>
 
       {/* Recent Appointments */}
-      <div className="bg-white rounded-xl2 border border-surface-border shadow-card overflow-hidden">
+      <div className="bg-white rounded-xl border border-surface-border shadow-card overflow-hidden">
         <div className="flex items-center justify-between px-5 py-4 border-b border-surface-border">
           <div className="flex items-center gap-2">
             <CalendarDays size={16} className="text-brand-500" />
@@ -268,7 +268,7 @@ const Dashboard = () => {
       </div>
 
       {/* System status banner — Fixed for mobile layout stack */}
-      <div className="bg-ink rounded-xl2 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="bg-ink rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center flex-shrink-0">
             <TrendingUp size={18} className="text-brand-300" />

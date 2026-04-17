@@ -56,7 +56,7 @@ const Chatbot = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="w-14 h-14 bg-brand-500 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform animate-bounce"
+          className="w-14 h-14 bg-brand-500 text-blue rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform animate-bounce"
           aria-label="Open AI Assistant"
         >
           <MessageSquare size={24} />
